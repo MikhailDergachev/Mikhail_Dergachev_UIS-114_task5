@@ -41,25 +41,25 @@ double root2(const double a, const double b) throw() {
 }
  
 double root3(const double a, const double b) throw(invalid_argument) {
-    if (abs(a - b) <= std::numeric_limits<double>::min())
+    if (abs(a) <= std::numeric_limits<double>::min())
         throw invalid_argument("Division by 0");
     return -b / a;
 }
  
 double root4_1(const double a, const double b) throw (exception_one) {
-    if (abs(a - b) <= std::numeric_limits<double>::min())
+    if (abs(a) <= std::numeric_limits<double>::min())
         throw exception_one();
     return -b / a;
 }
  
 double root4_2(const double a, const double b) throw(exception_second) {
-    if (abs(a - b) <= std::numeric_limits<double>::min())
+    if (abs(a) <= std::numeric_limits<double>::min())
         throw exception_second("Division by 0");
     return -b / a;
 }
  
 double root4_3(const double a, const double b) throw(exception_third) {
-    if (abs(a - b) <= std::numeric_limits<double>::min())
+    if (abs(a) <= std::numeric_limits<double>::min())
         throw exception_third("Invalid argument", a);
     return -b / a;
 }

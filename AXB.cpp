@@ -32,34 +32,34 @@ public:
     }
 };
  
-double root1(double a, double b) {
+double root1(const double a, const double b) {
     return -b / a;
 }
  
-double root2(double a, double b) throw() {
+double root2(const double a, const double b) throw() {
     return -b / a;
 }
  
-double root3(double a, double b) throw(invalid_argument) {
-    if (a == 0.0)
+double root3(const double a, const double b) throw(invalid_argument) {
+    if (abs(a - b) <= std::numeric_limits<double>::min())
         throw invalid_argument("Division by 0");
     return -b / a;
 }
  
-double root4_1(double a, double b) throw (exception_one) {
-    if (a == 0.0)
+double root4_1(const double a, const double b) throw (exception_one) {
+    if (abs(a - b) <= std::numeric_limits<double>::min())
         throw exception_one();
     return -b / a;
 }
  
-double root4_2(double a, double b) throw(exception_second) {
-    if (a == 0.0)
+double root4_2(const double a, const double b) throw(exception_second) {
+    if (abs(a - b) <= std::numeric_limits<double>::min())
         throw exception_second("Division by 0");
     return -b / a;
 }
  
-double root4_3(double a, double b) throw(exception_third) {
-    if (a == 0.0)
+double root4_3(const double a, const double b) throw(exception_third) {
+    if (abs(a - b) <= std::numeric_limits<double>::min())
         throw exception_third("Invalid argument", a);
     return -b / a;
 }
@@ -72,4 +72,3 @@ void launcher(double (*func)(double, double)) {
     cin >> b;
     cout << "Linear equation root: " << func(a, b) << endl;
 }
- 

@@ -1,6 +1,8 @@
 #include <iostream>
 #include <stdexcept>
 #include <string>
+#include <cmath>
+#include <limits>
 
 using namespace std;
 
